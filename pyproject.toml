@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medvqa"
+version = "0.1.0"
+description = "LoRA fine-tuning of a small vision-language model on radiology VQA, compressed to int8 for CPUs"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Zubair Zulfiqar"}]
+dependencies = [
+    "torch>=2.3",
+    "transformers>=4.46",
+    "peft>=0.13",
+    "datasets>=3.0",
+    "Pillow>=10.0",
+    "num2words",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+edge = ["torchao>=0.10"]
+
+[tool.setuptools]
+packages = ["medvqa"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
